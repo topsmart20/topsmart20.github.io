@@ -40,6 +40,13 @@ a:hover {
   text-decoration: none;
 }
 
+/* added new */
+h1{
+  font-family: roboto !important;
+  font-style: italic !important;
+}
+/* added new */
+
 h1,
 h2,
 h3,
