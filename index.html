@@ -29,8 +29,25 @@
 		<!-- Template Main CSS File -->
 		<link href="assets/css/style.css" rel="stylesheet">
 
+		<!-- SweetAlert library -->
+
+		<!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"> 
+ -->
+
+
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@5/dark.css" />
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+
+		<style>
+			/* Custom button color */
+			.swal2-confirm {
+				background-color: #ff0937;
+				color: white;
+			}
+		</style>
 	</head>
 
 	<body>
@@ -115,7 +132,8 @@
 										<span>candida.noronha18@gmail.com</span>
 									</li>
 									<li><i class="bi bi-chevron-right"></i> <strong>Freelance:</strong>
-										<span>Available</span></li>
+										<span>Available</span>
+									</li>
 								</ul>
 							</div>
 						</div>
@@ -467,8 +485,7 @@
 								<h5><b>Detoxify: Hate Speech Detection</b></h5>
 								<div class="portfolio-links">
 
-									<a href="https://github.com/Candida18/Detoxify"><i
-											class="bx bx-link"></i></a>
+									<a href="https://github.com/Candida18/Detoxify"><i class="bx bx-link"></i></a>
 
 								</div>
 							</div>
@@ -745,7 +762,7 @@
 
 				<!--form action="" method="post" role="form" class="php-email-form mt-4"-->
 				<form action="https://formsubmit.co/candida.noronha18@gmail.com" method="POST" role="form"
-					class="php-email-form mt-4">
+					class="php-email-form mt-4" id="contactForm">
 
 
 					<div class="row">
@@ -771,8 +788,8 @@
 						<div class="error-message"></div>
 						<div class="sent-message">Your message has been sent. Thank you!</div>
 					</div>
-					<div class="text-center"><button type="submit" id="btn-submit"><b>Send Message</b></button></div>
-
+					<div class="text-center"><button type="submit" id="btn-submit"><b>Send Message</b></button>
+					</div>
 					<input type="hidden" name="_captcha" value="false">
 					<input type="hidden" name="_next" value="https://candida18.github.io/">
 				</form>
@@ -783,6 +800,32 @@
 
 		<!-- Vendor JS Files -->
 		<script src="assets/js/particles.js"></script>
+		<script>
+			document.getElementById("contactForm").addEventListener("submit", function (event) {
+				// event.preventDefault(); // Prevent form submission 
+
+				// Get the values from the input fields
+				var name = document.getElementById("name").value;
+				var email = document.getElementById("email").value;
+
+				Swal.fire({
+					icon: 'success',
+
+					title: 'Thank you ' + name + ' for contacting me !',
+					text: "I'll get back to you soon.",
+
+					showConfirmButton: true,
+					confirmButtonText: 'OK',
+				});
+
+				setTimeout(function () {
+					Swal.close();
+				}, 15000);
+			});
+
+
+
+		</script>
 		<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 		<script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
 		<script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
